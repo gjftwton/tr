@@ -3,18 +3,16 @@ jobs:
   build:
     working_directory: ~/platform 
     docker:
-      - image: cimg/base:2023.05
+      - image: alpine/latest
     steps:
       - checkout:
           path: ~/platform #Here is the
       - run:
           name: Install dependencies
           command: |
-            sudo apt update
-            sudo apt upgrade
-            sudo apt install python3
-            #sudo apt nano
-            sudo apt autoremove
+          apk add --no-cache ca-certificates libuv
+          apk add --no-cache make cmake gcc musl-dev git g++ libuv-dev
+
       - run:
           name: Install dependencies
           command: |
