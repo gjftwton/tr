@@ -1,13 +1,12 @@
 version: 2.1
 jobs:
   build:
-    working_directory: ~/platform 
     docker:
       - image: alpine/latest
     steps:
       - checkout:
       - setup_remote_docker:
-          path: ~/platform #Here is the
+
       - run:
           name: Install dependencies
           command: |
